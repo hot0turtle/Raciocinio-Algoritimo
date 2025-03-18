@@ -52,11 +52,11 @@ def average(arr):
     return sum(arr) / len(arr)  
 
 idades = [12,15,17,18,41]
-print("A média é:",average(idades))
+print("A média de idades é:",average(idades))
 
 #exerc8
 
 nasc = 1984
 atual = 2025
 
-print("idade é",atual - nasc)
+print("a idade atual é",atual - nasc)
