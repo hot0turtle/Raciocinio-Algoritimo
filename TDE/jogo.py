@@ -2,12 +2,7 @@ import random
 import tkinter as tk
 from tkinter import ttk
 
-def set_choice(text1, command1):
-    option1_button.config(text=text1, command=command1)
-    option2_button.config(text=text2, command=command2)
-    # Retira opcoes antes da decisao
-    choice_frame.pack_forget() 
-    choice_frame.pack(side='bottom', fill='x', pady=5)
+
 
 def set_choices(text1, command1, text2, command2):
     option1_button.config(text=text1, command=command1)
@@ -32,7 +27,6 @@ def go_left():
     new_value = max(progress['value'] - random.randint(20, 40), 0)
     progress['value'] = new_value
     progress_label.config(text=str(int(new_value)))
-    print(new_value)
     hide_choices()
     text_area.insert('end', "Você entra na floresta e logo encontra um pequeno rio de água cristalina. A sombra das árvores oferece um alívio do calor intensoa.\n")
     set_choices("Beber a agua do Rio", continacao_left, "Beber a agua do Rio", continacao_le)
@@ -72,7 +66,8 @@ def abrigo():
     progress_label.config(text=str(int(new_value)))
     hide_choices()
     text_area.insert('end', "Pela manhã, pescadores da ilha o encontram e decidem ajudá-lo.\n")
-    set_choice(" Construir um abrigo", resultado)
+    print(progress['value'])
+    set_choices(" Ver Resultado", resultado,"Resultado", result)
 
 def fogueira():
     new_value = max(progress['value'] - random.randint(5, 15), 0)
@@ -80,22 +75,58 @@ def fogueira():
     progress_label.config(text=str(int(new_value)))
     hide_choices()
     text_area.insert('end', "Um navio distante vê a fumaça e envia uma equipe de resgate rapidamente.\n")
-    set_choice(" Construir um abrigo", resultado)
+    set_choices(" Ver Resultado", resultado,"Resultado", result)
 
 
 #Praia
 def go_right():
-    new_value = max(progress['value'] + random.randint(5, 15), 0)
+    new_value = max(progress['value'] - random.randint(20, 40), 0)
     progress['value'] = new_value
     progress_label.config(text=str(int(new_value)))
     hide_choices()
-    text_area.insert('end', "Você encontra um coqueiro e consegue beber água de coco.\n")
-    set_choices("Enter a cave", enter_cave, "Return", return_back)
+    text_area.insert('end', "Você decide caminhar pela praia, sentindo o calor do sol e a areia quente sob seus pés. Você também começa a sentir fome e cansaço.\n")
+    set_choices("Caçar ou Pescar", fish, "Procurar Frutas ", apples)
 
+def fish():
+    new_value = max(progress['value'] - random.randint(15,35),0)
+    progress['value'] = new_value
+    progress_label.config(text=str(int(new_value)))
+    hide_choices()
+    text_area.insert('end', "Você não consegue coletar nada de proteína")
+    set_choices(" Construir um abrigo", abrigo, "Acender uma fogueira", fogueira)
+
+def apples():
+    new_value = max(progress['value'] + random.randint(10,25),0)
+    progress['value'] = new_value
+    progress_label.config(text=str(int(new_value)))
+    hide_choices()
+    text_area.insert('end', " Você encontra frutas e se sente reinvigorado\n")
+    set_choices(" Construir um abrigo", abrigo, "Acender uma fogueira", fogueira)
 
 
 #final
 
+def resultado():
+    if progress['value'] >= 70:
+        hide_choices()
+        text_area.insert('end', " O resgate chega e você está tão bem que dá até para dar autógrafos para os socorristas. (Final Alegre – Você foi resgatado, e até parece que esteve em um spa por dias!)\n")
+    elif progress['value'] >= 30 and progress['value'] < 70:
+        hide_choices()
+        text_area.insert('end', " O resgate chega, mas você está tão fraco que mal consegue fazer uma piada. (Final Irônico – Você sobreviveu, mas está mais parecendo um zumbi do que um herói.)\n")
+    elif progress['value'] < 30:
+        hide_choices()
+        text_area.insert('end', " O resgate chega, mas ele mal consegue levantar e até acha que o socorro é só mais um pesadelo. (Final Surreal – Você foi resgatado, mas vai precisar de muitos cafés para voltar à vida normal!)\n")
+
+def result():
+    if progress['value'] >= 70:
+        hide_choices()
+        text_area.insert('end', " O resgate chega e você está tão bem que dá até para dar autógrafos para os socorristas. (Final Alegre – Você foi resgatado, e até parece que esteve em um spa por dias!)\n")
+    elif progress['value'] >= 30 and progress['value'] < 70:
+        hide_choices()
+        text_area.insert('end', " O resgate chega, mas você está tão fraco que mal consegue fazer uma piada. (Final Irônico – Você sobreviveu, mas está mais parecendo um zumbi do que um herói.)\n")
+    elif progress['value'] < 30:
+        hide_choices()
+        text_area.insert('end', " O resgate chega, mas ele mal consegue levantar e até acha que o socorro é só mais um pesadelo. (Final Surreal – Você foi resgatado, mas vai precisar de muitos cafés para voltar à vida normal!)\n")
 
 
 root = tk.Tk()
