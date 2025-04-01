@@ -29,17 +29,17 @@ def go_left():
     progress_label.config(text=str(int(new_value)))
     hide_choices()
     text_area.insert('end', "Você entra na floresta e logo encontra um pequeno rio de água cristalina. A sombra das árvores oferece um alívio do calor intensoa.\n")
-    set_choices("Beber a agua do Rio", continacao_left, "Beber a agua do Rio", continacao_le)
+    set_choices("Beber a agua do Rio", continacao_left, "Procurar uma outra fonte de água ", procurar)
 
 def  continacao_left():
+    new_value = max(progress['value'] - random.randint(15, 35), 0)
+    progress['value'] = new_value
+    progress_label.config(text=str(int(new_value)))
+    hide_choices()
     hide_choices()
     text_area.insert('end', "Humm, voce começou a passar mal, o que deseja fazer? .\n")
     set_choices("Beber mais a água do rio", rio, "Procurar uma fonte de água mais segura", procurar)
 
-def  continacao_le():
-    hide_choices()
-    text_area.insert('end', "Humm, voce começou a passar mal, o que deseja fazer? .\n")
-    set_choices("Beber mais a água do rio", rio, "Procurar uma fonte de água mais segura", procurar)
 
 def  rio():
     new_value = max(progress['value'] - random.randint(15, 35), 0)
@@ -109,13 +109,13 @@ def apples():
 def resultado():
     if progress['value'] >= 70:
         hide_choices()
-        text_area.insert('end', " O resgate chega e você está tão bem que dá até para dar autógrafos para os socorristas. (Final Alegre – Você foi resgatado, e até parece que esteve em um spa por dias!)\n")
+        text_area.insert('end', " O resgate chega e você está tão bem que dá até para dar autógrafos para os socorristas. (Final Alegre – Você foi resgatado, e até parece que esteve em um spa por dias! 😎)\n")
     elif progress['value'] >= 30 and progress['value'] < 70:
         hide_choices()
-        text_area.insert('end', " O resgate chega, mas você está tão fraco que mal consegue fazer uma piada. (Final Irônico – Você sobreviveu, mas está mais parecendo um zumbi do que um herói.)\n")
+        text_area.insert('end', " O resgate chega, mas você está tão fraco que mal consegue fazer uma piada. (Final Irônico – Você sobreviveu, mas está mais parecendo um zumbi do que um herói.🤕)\n")
     elif progress['value'] < 30:
         hide_choices()
-        text_area.insert('end', " O resgate chega, mas ele mal consegue levantar e até acha que o socorro é só mais um pesadelo. (Final Surreal – Você foi resgatado, mas vai precisar de muitos cafés para voltar à vida normal!)\n")
+        text_area.insert('end', " O resgate chega, mas ele mal consegue levantar e até acha que o socorro é só mais um pesadelo. (Final Surreal – Você foi resgatado, mas vai precisar de muitos cafés para voltar à vida normal! ☠☠)\n")
 
 def result():
     if progress['value'] >= 70:
