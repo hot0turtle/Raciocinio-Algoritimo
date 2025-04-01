@@ -2,7 +2,7 @@ import random
 import tkinter as tk
 from tkinter import ttk
 
-
+#Alunos: Leonardo S.Hanke, Thiago Venturelli, Tomás Guilgen, João Leonardo
 
 def set_choices(text1, command1, text2, command2):
     option1_button.config(text=text1, command=command1)
@@ -49,7 +49,7 @@ def  rio():
     text_area.insert('end', " A água pode estar contaminada. Você começa a se sentir mal; O sol começa a se pôr, e a temperatura cai rapidamente. O vento aumenta, e você sabe que precisa se preparar para a noite. Após algum tempo, você encontra destroços do barco, incluindo madeira, cordas e pedaços de tecido.\n")
     set_choices(" Construir um abrigo", abrigo, " Acender uma fogueira", fogueira)
 
-def procurar():
+def procurar(): 
     new_value = max(progress['value'] + random.randint(5, 15), 0)
     progress['value'] = new_value
     progress_label.config(text=str(int(new_value)))
