@@ -3,6 +3,10 @@ import tkinter as tk
 from tkinter import ttk
 
 #Alunos: Leonardo S.Hanke, Thiago Venturelli, Tomás Guilgen, João Leonardo
+#link fluxograma:
+#https://www.canva.com/design/DAGjZTOD2ns/D0WCPPjafk1MnKCrh6uHXA/edit?utm_content=DAGjZTOD2ns&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+
 
 def set_choices(text1, command1, text2, command2):
     option1_button.config(text=text1, command=command1)
