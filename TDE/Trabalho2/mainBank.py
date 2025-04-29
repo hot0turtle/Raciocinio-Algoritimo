@@ -5,7 +5,7 @@ senha_gerente = 0
 with open('TDE\Trabalho2\dados.pkl', 'rb') as f:
     d_load = pickle.load(f)
 
-print(d_load["balance"])
+
 
 def menu():
     global account_type
@@ -20,10 +20,10 @@ def menu():
 def login_cliente():
     menu_options = int(input("Menu Cliente:\n1. Consultar Saldo\n2. Depositar\n3. Sacar/Pix\n4. Simular Rendimento\n5. Voltar ao Menu Principal\n"))
     if menu_options == 1:
-
+        print(d_load["balance"])
     elif menu_options == 2:
-
-
+        dep = int(input("Quer depositar quanto?"))
+        update_balance = int(d_load["balance"]) + dep
     elif menu_options == 3:
     
     elif menu_options == 4:
