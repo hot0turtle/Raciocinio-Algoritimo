@@ -1,0 +1,9 @@
+first y than x
+
+so for 1,2,3
+       2,2,5
+
+       to get the 5 you need to say [1,2]
+
+    also you could represent that with [[1,2,3] [2,2,5]]
+     
