@@ -21,30 +21,27 @@ data = [[120, 10, 3, 250, 'P1'],
         [95, 7, 2, 195, 'P1'],
         [270, 40, 6, 590, 'P3']]
 
-
-
 def calcularPerfil():
-    dow = int(input("Mb de dowload Diario\n"))
+    dow = int(input("Criando novo Usuario insira as seguintes informacoes:\nMb de dowload Diario\n"))
     upl = int(input("Upload medio Diario\n"))
     simult = int(input("Numero de acessos simult\n"))
     conexao = int(input(" Tempo medio de conexao min\n"))
     delt = 99999
     for item in data:
-        print(item[0])
         d = math.sqrt((dow - item[0])**2 + (upl - item[1])**2 + (simult - item[2])**2 + (conexao - item[3])**2)
         if d < delt:
             delt = d
             new_p = item[4]
-            print(new_p)
 
         new_user = [dow, upl, simult, conexao, new_p]
         
     data.append(new_user)
     print(data)
-
-
-
-
+    cont = int(input("Quer criar um novo usuario?\n1 = Sim\n2 = Nao"))
+    if cont == 1:
+        calcularPerfil()
+    else:
+        print("ate a proxima")
         
 
 
