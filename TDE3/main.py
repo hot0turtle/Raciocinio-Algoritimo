@@ -24,5 +24,28 @@ data = [[120, 10, 3, 250, 'P1'],
 
 
 def calcularPerfil():
+    dow = int(input("Mb de dowload Diario\n"))
+    upl = int(input("Upload medio Diario\n"))
+    simult = int(input("Numero de acessos simult\n"))
+    conexao = int(input(" Tempo medio de conexao min\n"))
+    delt = 99999
+    for item in data:
+        print(item[0])
+        d = math.sqrt((dow - item[0])**2 + (upl - item[1])**2 + (simult - item[2])**2 + (conexao - item[3])**2)
+        if d < delt:
+            delt = d
+            new_p = item[4]
+            print(new_p)
 
-    d = math.sqrt
+        new_user = [dow, upl, simult, conexao, new_p]
+        
+    data.append(new_user)
+    print(data)
+
+
+
+
+        
+
+
+calcularPerfil()
